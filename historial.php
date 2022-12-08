@@ -73,7 +73,7 @@ if (! $_POST || trim($_POST['buspro'])   === '')
 } else {
   echo '<div class="row">
           <div class="col-3">
-          <select name="select" class="form-control" required  multiple>
+          <select name="select" class="form-control" required>
             <option value="producto">producto</option>
             <option value="vendedor">vendedor</option>
             <option value="fecha">fecha</option>
