@@ -5,6 +5,10 @@ session_start();
 
 require_once("php/head.php");
 
+if(isset($_SESSION['administrador']))
+  {
+    goto admin;
+  }
 if(!isset($_SESSION['usuario']))
   {
     echo "<script>
@@ -24,6 +28,8 @@ if(!isset($_SESSION['usuario']))
               die();
             }
           }
+admin:
+
 ?>
 
 <section id="administrativo" class="container FEs">
@@ -63,6 +69,13 @@ if(!isset($_SESSION['usuario']))
       <a href="imprimir.php">
         <h2>
           <strong>Imprimir Historial</strong>
+        </h2>
+      </a>
+    </div>
+    <div class="col-4">
+      <a href="ventas_diarias.php">
+        <h2>
+          <strong>Ventas Diarias</strong>
         </h2>
       </a>
     </div>
