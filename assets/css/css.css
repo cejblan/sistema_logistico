@@ -1,0 +1,371 @@
+/* General */
+html {
+    min-height: 100%;
+    position: relative;
+    caret-color: transparent;
+  }
+
+body {
+    background-image: url('../images/fondo.png') !important;
+    background-size: cover;
+    font-family: -apple-system,
+				BlinkMacSystemFont,
+				'Segoe UI',
+				'Roboto',
+				'Helvetica Neue',
+				Arial,
+				sans-serif;
+    margin: 0;
+    margin-bottom: 4em;
+}
+
+img.logo:hover {
+    filter: saturate(150%);
+}
+
+a.navbar-caption.text-white.display-7 {
+    font-size: calc(0.9em + 0.7vw);
+}
+
+a.navbar-caption.text-white.display-7:hover {
+    text-shadow: 0 0 0.2em black;
+    transition:all .5s ease-in-out;
+}
+
+a.nav-link.link.text-white.text-primary {
+    font-size: calc(0em + 0.7vw);
+}
+
+.container.FEs {
+    background-color: transparent !important;
+}
+
+.container.FEs h1, .container.FEs h2 {
+    color: white;
+    text-align: center;
+}
+
+.container.FEs h1 {
+    text-align: center;
+    margin-top: 1em;
+}
+
+/*Fin General */
+/* Index */
+section#cuadricula {
+    background-color: transparent !important;
+}
+
+#cuadricula .col-6.cuadro.c1,
+#cuadricula .col-6.cuadro.c1-2,
+#cuadricula .col-6.cuadro.c2,
+#cuadricula .col-6.cuadro.c3,
+#cuadricula .col-6.cuadro.c4 {
+    background-size: cover;
+    transition:all .5s ease-in-out;
+}
+
+#cuadricula .col-6.cuadro.c1:hover {
+    box-shadow: 0em 0em 3em #353535;
+    transition:all .5s ease-in-out;
+}
+
+#cuadricula .col-6.cuadro.c1-2:hover,
+#cuadricula .col-6.cuadro.c2:hover,
+#cuadricula .col-6.cuadro.c3:hover,
+#cuadricula .col-6.cuadro.c4:hover {
+    filter: opacity(1) !important;
+    box-shadow: 0em 0em 3em #353535;
+    transition:all .5s ease-in-out;
+}
+
+#cuadricula .col-6.cuadro.c1 {
+    background-image: url('../images/mbr-1.jpg') !important;
+}
+
+#cuadricula .col-6.cuadro.c1-2 {
+    background-image: url('../images/mbr-7.jpg') !important;
+    background-position-y: center;
+}
+
+#cuadricula .col-6.cuadro.c2 {
+    background-image: url('../images/mbr-2.jpg') !important;
+}
+
+#cuadricula .col-6.cuadro.c3 {
+    background-image: url('../images/img_historial.jpg') !important;
+}
+
+#cuadricula .col-6.cuadro.c4 {
+    background-image: url('../images/team2.jpg') !important;
+}
+
+#cuadricula .cuadro {
+    text-align: center;
+    padding: 3%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    position: relative;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    box-shadow: 0px 0px 11px #8b8b8b;
+    height: 24em;
+    width: 38em;
+}
+
+#cuadricula h1 {
+    position: absolute;
+    bottom: 0.2em;
+    left: 0.3em;
+    color: white;
+    font-size: calc(3em + 1vw);
+    background-color: rgb(35 35 35 / 50%);
+    padding: 0 0.1em 0.1em 0.1em;
+    border: white solid 0.02em;
+    border-radius: 0.1em;
+}
+
+/* Fin Index */
+/* Productos */
+#productos .cajita {
+	padding: 3%;
+	margin: auto;
+	margin-bottom: 7%;
+	position: relative;
+	display: block;
+	border-radius: 1em;
+	box-shadow: 0 0 1em 0.01em #232323; 
+	height: 26em;
+	width: 19em;
+    transition:all .5s ease-in-out;
+}
+
+#productos .cajita:hover {
+    box-shadow: 0em 0em 2em rgb(31, 103, 185);
+    transition:all .5s ease-in-out;
+}
+
+#productos .cajita img.pre {
+    max-height: 21em;
+    max-width: 14em;
+    height: 21em;
+    width: 14em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 1em;
+}
+
+#productos .cajita:hover .cajaFlotante {
+	filter: opacity(1);
+    transition:all .5s ease-in-out;
+}
+
+#productos .cajaFlotante {
+	position: absolute;
+    top: 1em;
+    right: 1em;
+    filter: opacity(0);
+    background: #000000a1;
+    width: 17em;
+    height: 24em;
+    border-radius: 1em;
+    transition:all .5s ease-in-out;
+}
+
+#productos label#id,
+#productos label#nombre, 
+#productos label#descripcion,
+#productos label#almacen,
+#productos label#estante,
+#productos label#tramo {
+    color: white;
+    font-family: sans-serif;
+    background-color: #053596;
+    padding: 0.6em 0.8em 0.1em 0.8em;
+    border-radius: 0.5em;
+}
+
+label#id {
+    position: absolute;
+    top: 0.6em;
+    left: 0.6em;
+}
+
+label#nombre {
+    position: absolute;
+    top: 3.3em;
+    left: 0.6em;
+}
+
+label#descripcion {
+    position: absolute;
+    top: 6em;
+    left: 0.6em;
+    max-height: 9.2em;
+    max-width: 15.8em;
+}
+
+#productos label#almacen {
+    position: absolute;
+    bottom: 6em;
+    left: 0.6em;
+}
+
+#productos label#estante {
+    position: absolute;
+    left: 0.6em;
+    bottom: 3.3em;
+}
+
+#productos label#tramo {
+    position: absolute;
+    bottom: 0.6em;
+    left: 0.6em;
+}
+
+#productos input#cantidad {
+    position: absolute;
+    right: 0.6em;
+    bottom: 4em;
+    width: 6.3em;
+}
+
+#productos input#cambiar {
+    position: absolute;
+    right: 0.6em;
+    bottom: 0.6em;
+}
+
+#productos input#invisible {
+    display:none;
+}
+
+/* Fin Productos */
+/* Usuario */
+.col-8.cuadroU {
+    background-color: #353535;
+    border-radius: 1em;
+    margin-top: 2em;
+    filter: blur(0.5em);
+    transition: all .5s ease-in-out;
+    padding: 2em;
+}
+
+.col-8.cuadroU:hover {
+    filter: blur(0);
+    transition:all .5s ease-in-out;
+}
+
+.col-8.cuadroU label {
+    margin-bottom: 2em;
+}
+
+.container.FEs .col-8.cuadroU h1 {
+    text-align: left;
+    margin-top: 0;
+    font-size: calc(2em + 1vw);
+}
+
+.container.FEs .col-8.cuadroU h3,
+.container.FEs .col-8.cuadroU h4 {
+    color: white;
+}
+
+.container.FEs .col-8.cuadroU h5 {
+    color: white;
+    font-style: oblique;
+}
+
+.col-8.cuadroU .col-4.absolute {
+    width: 13em;
+    height: 12em;
+    position: absolute;
+    right: 2em;
+    top: 5em;
+    border-radius: 1em;
+}
+
+.col-8.cuadroU h5.absolute {
+    position: absolute;
+    right: 1em;
+    top: 14em;
+}
+
+.col-8.cuadroU input#submit {
+    position: absolute;
+    right: 9em;
+    top: 23.55em;
+}
+
+/* Fin Usuario */
+/* Administrativo */
+#administrativo h2 {
+    background: white;
+    border-radius: 1em;
+    height: 2em;
+    padding: 0.45em;
+    color: #053596 !important;
+}
+    
+/* Fin administrativo */
+/* Logout */
+section#logout {
+    background-color: transparent;
+}
+
+section#logout .col-12 {
+    position: absolute;
+    top: 21em;
+}
+
+/* Fin Logout */
+/* Footer */
+section#footer {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+    height: 4em;
+    background-color: #232323 !important;
+	position: absolute;
+	bottom: -4.03em;
+	width: 100%;
+}
+
+section#footer p.display-7 {
+    color: white !important;
+    margin: 0;
+    text-align: center;
+}
+
+section#footer a.TSU {
+    color: #0d6efd !important;
+}
+
+/* Footer */
+/* Alertas */
+section#alertas {
+    position: absolute;
+    left: 19%;
+    top: 10%;
+    background-color: transparent !important;
+}
+
+div#alert {
+    border-radius: 0.5em;
+}
+
+/* Fin Alertas */
+/* Media Queries */
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (min-device-width : 412px) and (max-device-height : 914px) {
+        /* Styles */
+        #productos .cajita img.pre {
+            margin-top: 1.8em;
+        }
+    }
