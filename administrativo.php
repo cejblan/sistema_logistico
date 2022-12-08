@@ -5,22 +5,22 @@ session_start();
 
 require_once("php/head.php");
 
-if(!isset($_SESSION['administrador']))
+if(!isset($_SESSION['usuario']))
   {
     echo "<script>
-            alert('Debes ser administrador para realizar esta acción');
-            window.location = 'index.php';
+            alert('Debes iniciar sesión');
+            window.location = 'login.php';
           </script>";
+    session_destroy();
     die();
   }
     else {
-          if(!isset($_SESSION['usuario']))
+          if(!isset($_SESSION['administrador']))
             {
               echo "<script>
-                      alert('Debes iniciar sesión');
-                      window.location = 'login.php';
+                      alert('Debes ser administrador para realizar esta acción');
+                      window.location = 'index.php';
                     </script>";
-              session_destroy();
               die();
             }
           }
