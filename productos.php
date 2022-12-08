@@ -38,7 +38,7 @@ if(isset($existenciaN))
     $actualizar = "UPDATE productos SET cantidad='$existenciaN' WHERE nombre='$nombre'";
     $resultado = mysqli_query($conexion, $actualizar);
 
-    $historial = "INSERT INTO historial (vendedor, producto, existenciaA, existenciaN)
+    $historial = "INSERT INTO historial_movimientos (vendedor, producto, existenciaA, existenciaN)
                 VALUES ('$usuario','$nombre','$existenciaA','$existenciaN')";
     $result_historial = mysqli_query($conexion,$historial);
   }
