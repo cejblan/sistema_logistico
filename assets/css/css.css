@@ -40,9 +40,12 @@ a.nav-link.link.text-white.text-primary {
     background-color: transparent !important;
 }
 
-.container.FEs h1, .container.FEs h2 {
+.container.FEs h1,
+.container.FEs h2,
+.container.FEs h4 {
     color: white;
     text-align: center;
+    text-shadow: 0px 0px 7px black;
 }
 
 .container.FEs h1 {
