@@ -39,66 +39,34 @@ require_once('php/conexion.php');
           <label>
             <h2>Busqueda:</h2>
           </label>
+          <div class="row">
+            <div class="col-3">
+              <select name="select" class="form-control" required>
+                <option value="producto">producto</option>
+                <option value="vendedor">vendedor</option>
+                <option value="fecha">fecha</option>
+              </select>
+            </div>
+            <div class="col-9">
+              <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
+            </div>
+          </div>
+          </br>
+          <div class="row">
+            <div class="col-3">
+              <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
+            </div>
+            <div class="col-9">
+              <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
+            </div>
+          </div>
+          </form>
+          </div>
+          </div>
+          </section>
+          </br>
 
 <?php
-if (! $_POST || trim($_POST['buspro'])   === '')
-  {
-  echo '<div class="row">
-          <div class="col-3">
-            <select name="select" class="form-control" required>
-              <option value="producto">producto</option>
-              <option value="vendedor">vendedor</option>
-              <option value="fecha">fecha</option>
-            </select>
-          </div>
-          <div class="col-9">
-            <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
-          </div>
-        </div>
-        </br>
-        <div class="row">
-          <div class="col-3">
-            <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
-          </div>
-          <div class="col-9">
-            <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
-          </div>
-        </div>
-        </form>
-        </div>
-        </div>
-        </section>
-        </br>';
-  goto end;
-} else {
-  echo '<div class="row">
-          <div class="col-3">
-          <select name="select" class="form-control" required>
-            <option value="producto">producto</option>
-            <option value="vendedor">vendedor</option>
-            <option value="fecha">fecha</option>
-          </select>
-          </div>
-          <div class="col-9">
-            <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
-          </div>
-        </div>
-        </br>
-        <div class="row">
-          <div class="col-3">
-            <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
-          </div>
-          <div class="col-9">
-            <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
-          </div>
-        </div>
-        </form>
-        </div>
-        </div>
-        </section>
-        </br>';
-}
-
 if(!$conexion) 
   {
   echo "<b><h3>No se ha podido conectar con el servidor</h3></b>";
