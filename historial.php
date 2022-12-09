@@ -39,34 +39,39 @@ require_once('php/conexion.php');
           <label>
             <h2>Busqueda:</h2>
           </label>
-          <div class="row">
-            <div class="col-3">
-              <select name="select" class="form-control" required>
-                <option value="producto">producto</option>
-                <option value="vendedor">vendedor</option>
-                <option value="fecha">fecha</option>
-              </select>
-            </div>
-            <div class="col-9">
-              <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
-            </div>
-          </div>
-          </br>
-          <div class="row">
-            <div class="col-3">
-              <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
-            </div>
-            <div class="col-9">
-              <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
-            </div>
-          </div>
-          </form>
-          </div>
-          </div>
-          </section>
-          </br>
 
 <?php
+if (! $_POST || trim($_POST['buspro'])   === '')
+  {
+  echo '<div class="row">
+          <div class="col-3">
+            <select name="select" class="form-control" required>
+              <option value="producto">producto</option>
+              <option value="vendedor">vendedor</option>
+              <option value="fecha">fecha</option>
+            </select>
+          </div>
+          <div class="col-9">
+            <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
+          </div>
+        </div>
+        </br>
+        <div class="row">
+          <div class="col-3">
+            <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
+          </div>
+          <div class="col-9">
+            <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
+          </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </section>
+        </br>';
+  goto end;
+}
+
 if(!$conexion) 
   {
   echo "<b><h3>No se ha podido conectar con el servidor</h3></b>";
@@ -186,7 +191,7 @@ if (isset($regNoEnc))
   <div id="alert" class="alert alert-warning d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
     <label>
-      <strong>Registro no encontrado</strong>
+      <strong><?php print($regNoEnc);?></strong>
     </label>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">
