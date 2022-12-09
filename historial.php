@@ -52,7 +52,7 @@ if (! $_POST || trim($_POST['buspro'])   === '')
             </select>
           </div>
           <div class="col-9">
-            <input type="select" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
+            <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
           </div>
         </div>
         </br>
@@ -80,7 +80,7 @@ if (! $_POST || trim($_POST['buspro'])   === '')
           </select>
           </div>
           <div class="col-9">
-            <input type="select" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
+            <input type="text" name="buspro" class="form-control" placeholder="Termino a buscar" required/>
           </div>
         </div>
         </br>
@@ -113,17 +113,17 @@ if (!$sistema_logistico)
 
 if($select == 'producto')
   {
-    $consult_productos = "SELECT * FROM historial WHERE 'producto' = '$buspro'";
+    $consult_productos = "SELECT * FROM historial_movimientos WHERE 'producto' = '$buspro'";
   }
 
 if($select == 'vendedor')
   {
-    $consult_productos = "SELECT * FROM historial WHERE 'vendedor' = '$buspro'";
+    $consult_productos = "SELECT * FROM historial_movimientos WHERE 'vendedor' = '$buspro'";
   }
 
 if($select == 'fecha')
   {
-    $consult_productos = "SELECT * FROM historial WHERE 'fecha' = '$buspro'";
+    $consult_productos = "SELECT * FROM historial_movimientos WHERE 'fecha' = '$buspro'";
   }
 
 $result_productos = mysqli_query($conexion,$consult_productos);
