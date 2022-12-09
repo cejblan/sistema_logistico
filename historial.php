@@ -113,17 +113,17 @@ if (!$sistema_logistico)
 
 if($select == 'producto')
   {
-    $consult_productos = "SELECT * FROM historial_movimientos WHERE 'producto' = '$buspro'";
+    $consult_productos = "SELECT * FROM historial_movimientos WHERE producto = '$buspro'";
   }
 
 if($select == 'vendedor')
   {
-    $consult_productos = "SELECT * FROM historial_movimientos WHERE 'vendedor' = '$buspro'";
+    $consult_productos = "SELECT * FROM historial_movimientos WHERE vendedor = '$buspro'";
   }
 
 if($select == 'fecha')
   {
-    $consult_productos = "SELECT * FROM historial_movimientos WHERE 'fecha' = '$buspro'";
+    $consult_productos = "SELECT * FROM historial_movimientos WHERE fecha = '$buspro'";
   }
 
 $result_productos = mysqli_query($conexion,$consult_productos);
