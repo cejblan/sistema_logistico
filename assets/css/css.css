@@ -306,11 +306,10 @@ label#descripcion {
 /* Fin Usuario */
 /* Administrativo */
 #administrativo h2 {
-    background: white;
+    background: #053596;
     border-radius: 1em;
     height: 2em;
     padding: 0.45em;
-    color: #053596 !important;
     margin-bottom: 1em;
 }
     
