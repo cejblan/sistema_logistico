@@ -53,6 +53,11 @@ a.nav-link.link.text-white.text-primary {
     margin-top: 1em;
 }
 
+.container.FEs th,
+.container.FEs td {
+    text-align: center;
+}
+
 /*Fin General */
 /* Index */
 section#cuadricula {
@@ -325,6 +330,20 @@ section#logout .col-12 {
 }
 
 /* Fin Logout */
+/* Ventas Diarias */
+input#borrar {
+    margin-left: 37.64%;
+}
+
+input#submit.center {
+    position: relative;
+    left: 42%;
+    right: 42%;
+    margin-top: 1em;
+    margin-bottom: 4em;
+}
+
+/* Fin Ventas Diarias */
 /* Footer */
 section#footer {
     padding: 0;
