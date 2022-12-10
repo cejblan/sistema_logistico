@@ -31,12 +31,7 @@ if(!isset($_SESSION['usuario']))
           }
 admin:
 
-if (@$_POST["selectNF"] == 0)
-  {
-    $NotaFactura = '';
-  }
-
-if (@$_POST["selectNF"] == 1)
+if (@$_POST["selectNF"] == 0 or 1)
   {
     $NotaFactura = 'nota';
   }
@@ -185,6 +180,7 @@ $result_ventas = $conexion->query($insert_ventas);
 
 $consult_ventas = "SELECT * FROM ventas_diarias WHERE fecha = '$fechaActual'";
 $result_consult_ventas = mysqli_query($conexion,$consult_ventas);
+
 
 if (@mysqli_num_rows($result_consult_ventas) == true)
  {
