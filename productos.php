@@ -29,6 +29,7 @@ $buspro = @$_POST["buspro"] ;
 $nombre = @$_POST["nombre2"] ;
 $existenciaA = @$_POST["cantidadA"] ;
 $existenciaN = @$_POST["cantidadN"] ;
+$fechaActual = date('y-m-d');
 
 require_once('php/head.php'); 
 require_once('php/conexion.php');
@@ -38,8 +39,8 @@ if(isset($existenciaN))
     $actualizar = "UPDATE productos SET cantidad='$existenciaN' WHERE nombre='$nombre'";
     $resultado = mysqli_query($conexion, $actualizar);
 
-    $historial = "INSERT INTO historial_movimientos (vendedor, producto, existenciaA, existenciaN)
-                VALUES ('$usuario','$nombre','$existenciaA','$existenciaN')";
+    $historial = "INSERT INTO historial_movimientos (vendedor, fecha, producto, existenciaA, existenciaN)
+                VALUES ('$usuario','$fechaActual','$nombre','$existenciaA','$existenciaN')";
     $result_historial = mysqli_query($conexion,$historial);
   }
 
