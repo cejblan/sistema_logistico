@@ -51,6 +51,49 @@ $delivery = @$_POST["selecD"];
 $observaciones = @$_POST["observaciones"];
 $fechaActual = date('y-m-d');
 
+if(isset($_POST["actualizar"]))
+  {
+    $uno_divisa = @$_POST["uno_divisa"];
+    $cinco_divisa = @$_POST["cinco_divisa"];
+    $diez_divisa = @$_POST["diez_divisa"];
+    $veinte_divisa = @$_POST["veinte_divisa"];
+    $cincuenta_divisa = @$_POST["cincuenta_divisa"];
+    $cien_divisa = @$_POST["cien_divisa"];
+
+    if(!isset($id2))
+      {
+        @$insert_apertura = "INSERT INTO apertura_caja (uno_divisa, cinco_divisa, diez_divisa, veinte_divisa, cincuenta_divisa, cien_divisa)
+                              VALUES ('$uno_divisa','$cinco_divisa','$diez_divisa','$veinte_divisa','$cincuenta_divisa','$cien_divisa')";
+        @$result_apertura = $conexion->query($insert_apertura);
+
+        @$insert_apertura = "UPDATE apertura_caja SET uno_divisa='$uno_divisa', cinco_divisa='$cinco_divisa', diez_divisa='$diez_divisa', veinte_divisa='$veinte_divisa', cincuenta_divisa='$cincuenta_divisa', cien_divisa='$cien_divisa' WHERE id= 1";
+        @$result_apertura = $conexion->query($insert_apertura);
+      } else {
+              @$insert_apertura = "UPDATE apertura_caja SET uno_divisa='$uno_divisa', cinco_divisa='$cinco_divisa', diez_divisa='$diez_divisa', veinte_divisa='$veinte_divisa', cincuenta_divisa='$cincuenta_divisa', cien_divisa='$cien_divisa' WHERE id= 1";
+              @$result_apertura = $conexion->query($insert_apertura);
+              }
+    }
+
+  if(isset($_POST["reiniciar"]))
+    {
+      $uno_divisa = 0;
+      $cinco_divisa = 0;
+      $diez_divisa = 0;
+      $veinte_divisa = 0;
+      $cincuenta_divisa = 0;
+      $cien_divisa = 0;
+
+      @$restar_apertura = "UPDATE apertura_caja SET uno_divisa='$uno_divisa', cinco_divisa='$cinco_divisa', diez_divisa='$diez_divisa', veinte_divisa='$veinte_divisa', cincuenta_divisa='$cincuenta_divisa', cien_divisa='$cien_divisa' WHERE id= 1";
+      @$result_restar_apertura = $conexion->query($restar_apertura);
+
+      $resetear = "DELETE FROM apertura_caja WHERE id <> '1'";
+      @$result_resetear = mysqli_query($conexion,$resetear);
+      
+      $restar = "ALTER TABLE apertura_caja AUTO_INCREMENT = 1";
+      @$result_restar = mysqli_query($conexion,$restar);
+
+    }
+
 ?>
 
 <section class="container FEs">
@@ -59,7 +102,6 @@ $fechaActual = date('y-m-d');
         <h1>Ventas Diarias</h1>
     </div>
   </div>
-  </br>
   </br>
   <form action="ventas_diarias.php" method="POST">
     <div class="row">
@@ -160,8 +202,78 @@ $fechaActual = date('y-m-d');
     </div>
   </form>
 </section>
+<section class="container FEs">
+  <div class="row">
+    <div class="col-12">
+      <h1>Caja</h1>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <form action="ventas_diarias.php" method="POST">
+      <div class="row">
+        <div class="col-2">
+          <h4>1$</h4>
+        </div>
+        <div class="col-2">
+          <h4>5$</h4>
+        </div>
+        <div class="col-2">
+          <h4>10$</h4>
+        </div>
+        <div class="col-2">
+          <h4>20$</h4>
+        </div>
+        <div class="col-2">
+          <h4>50$</h4>
+        </div>
+        <div class="col-2">
+          <h4>100$</h4>
+        </div>
+      </div>
+    <?php
 
+    @$consult_apertura = "SELECT * FROM apertura_caja WHERE id = '1'";
+    @$result_apertura = mysqli_query($conexion,$consult_apertura);
+
+    while ($columB = mysqli_fetch_array($result_apertura))
+      {
+    ?>
+      <div class="row">
+        <div class="col-2">
+          <input type="number" name="uno_divisa" class="form-control" placeholder="Billetes de Uno" value="<?php echo $columB['uno_divisa'];?>" required/>
+        </div>
+        <div class="col-2">
+          <input type="number" name="cinco_divisa" class="form-control" placeholder="Billetes de Cinco" value="<?php echo $columB['cinco_divisa'];?>" required/>
+        </div>
+        <div class="col-2">
+          <input type="number" name="diez_divisa" class="form-control" placeholder="Billetes de Diez" value="<?php echo $columB['diez_divisa'];?>" required/>
+        </div>
+        <div class="col-2">
+          <input type="number" name="veinte_divisa" class="form-control" placeholder="Billetes de Veinte" value="<?php echo $columB['veinte_divisa'];?>" required/>
+        </div>
+        <div class="col-2">
+          <input type="number" name="cincuenta_divisa" class="form-control" placeholder="Billetes de Cincuenta" value="<?php echo $columB['cincuenta_divisa'];?>" required/>
+        </div>
+        <div class="col-2">
+          <input type="number" name="cien_divisa" class="form-control" placeholder="Billestes de Cien" value="<?php echo $columB['cien_divisa'];?>" required/>
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-10">
+          <input class="btn btn-success" type="submit" name="actualizar" id="submit" value="Actualizar"/>
+        </div>
+        <div class="col-2">
+          <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
 <?php
+}
+
 if(!$conexion) 
   {
   echo "<b><h3>No se ha podido conectar con el servidor</h3></b>";
@@ -273,91 +385,10 @@ if (@mysqli_num_rows($result_consult_ventas) == true)
     </table>
   </div>
 </section>
-<section class="container FEs">
-  <div class="row">
-    <div class="col-12">
-      <h1>Caja</h1>
-    </div>
-  </div>
-  </br>
-  <div class="row">
-    <form action="ventas_diarias.php" method="POST">
-      <div class="row">
-        <div class="col-2">
-          <h4>1$</h4>
-        </div>
-        <div class="col-2">
-          <h4>5$</h4>
-        </div>
-        <div class="col-2">
-          <h4>10$</h4>
-        </div>
-        <div class="col-2">
-          <h4>20$</h4>
-        </div>
-        <div class="col-2">
-          <h4>50$</h4>
-        </div>
-        <div class="col-2">
-          <h4>100$</h4>
-        </div>
-      </div>
-    <?php
-
-    @$consult_apertura = "SELECT * FROM apertura_caja WHERE id = '1'";
-    @$result_apertura = mysqli_query($conexion,$consult_apertura);
-
-    while ($columB = mysqli_fetch_array($result_apertura))
-      {
-    ?>
-      <div class="row">
-        <div class="col-2">
-          <input type="number" name="uno_divisa" class="form-control" placeholder="Billetes de Uno" value="<?php echo $columB['uno_divisa'];?>" required/>
-        </div>
-        <div class="col-2">
-          <input type="number" name="cinco_divisa" class="form-control" placeholder="Billetes de Cinco" value="<?php echo $columB['cinco_divisa'];?>" required/>
-        </div>
-        <div class="col-2">
-          <input type="number" name="diez_divisa" class="form-control" placeholder="Billetes de Diez" value="<?php echo $columB['diez_divisa'];?>" required/>
-        </div>
-        <div class="col-2">
-          <input type="number" name="veinte_divisa" class="form-control" placeholder="Billetes de Veinte" value="<?php echo $columB['veinte_divisa'];?>" required/>
-        </div>
-        <div class="col-2">
-          <input type="number" name="cincuenta_divisa" class="form-control" placeholder="Billetes de Cincuenta" value="<?php echo $columB['cincuenta_divisa'];?>" required/>
-        </div>
-        <div class="col-2">
-          <input type="number" name="cien_divisa" class="form-control" placeholder="Billestes de Cien" value="<?php echo $columB['cien_divisa'];?>" required/>
-        </div>
-      </div>
-      </br>
-      <div class="row">
-        <div class="col-10">
-          <input class="btn btn-success" type="submit" name="submit" id="submit" value="Actualizar"/>
-        </div>
-        <div class="col-2">
-          <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
 <?php
 
-  }
-
-$uno_divisa = @$_POST["uno_divisa"];
-$cinco_divisa = @$_POST["cinco_divisa"];
-$diez_divisa = @$_POST["diez_divisa"];
-$veinte_divisa = @$_POST["veinte_divisa"];
-$cincuenta_divisa = @$_POST["cincuenta_divisa"];
-$cien_divisa = @$_POST["cien_divisa"];
-
-@$insert_apertura = "INSERT INTO apertura_caja (uno_divisa, cinco_divisa, diez_divisa, veinte_divisa, cincuenta_divisa, cien_divisa)
-                    VALUES ('$uno_divisa','$cinco_divisa','$diez_divisa','$veinte_divisa','$cincuenta_divisa','$cien_divisa')";
-@$result_apertura = $conexion->query($insert_apertura);
-
-
+@$sumatoria_apertura = mysqli_query($conexion, "SELECT SUM(uno_divisa * 1 + cinco_divisa * 5 + diez_divisa * 10 + veinte_divisa * 20 + cincuenta_divisa * 50 + cien_divisa * 100) AS sumatoria FROM apertura_caja WHERE id = 2");
+@$result_sumatoria_apertura = mysqli_fetch_assoc($sumatoria_apertura);
 
 ?>
 <section class="container FEs">
@@ -384,12 +415,12 @@ $cien_divisa = @$_POST["cien_divisa"];
           </td>
           <td>
             <label>
-              <h6><?php print($result_sumatoria_ventas['sumatoria']);?></h6>
+              <h6><?php print($result_sumatoria_apertura["sumatoria"]);?></h6>
             </label>
           </td>
           <td>
             <label>
-              <h6><?php print($result_sumatoria_ventas['sumatoria']);?></h6>
+              <h6><?php print($result_sumatoria_ventas['sumatoria'] + $result_sumatoria_apertura["sumatoria"]);?></h6>
             </label>
           </td>
         </tr>
@@ -420,17 +451,6 @@ $cien_divisa = @$_POST["cien_divisa"];
 </section>
 
 <?php
-
-$reiniciar = @$_POST["reiniciar"];
-
-if(isset($reiniciar))
-  {
-    $resetear = "DELETE FROM apertura_caja WHERE id <> '1'";
-    $result_resetear = mysqli_query($conexion,$resetear);
-    
-    $restar = "ALTER TABLE apertura_caja AUTO_INCREMENT = 1";
-    $result_restar = mysqli_query($conexion,$restar);
-  }
 
 end:
 @mysqli_close( $conexion );
