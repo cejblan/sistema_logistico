@@ -197,7 +197,7 @@ if(isset($_POST["actualizar"]))
         <input class="btn btn-success" type="submit" name="submit" id="submit" value="Registrar venta"/>
       </div>
       <div class="col-2">
-        <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
+        <input class="btn btn-success ventas_diarias" type="reset" name="borrar" id="borrar" value="Restablecer"/>
       </div>
     </div>
   </form>
@@ -265,7 +265,7 @@ if(isset($_POST["actualizar"]))
           <input class="btn btn-success" type="submit" name="actualizar" id="submit" value="Actualizar"/>
         </div>
         <div class="col-2">
-          <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
+          <input class="btn btn-success ventas_diarias" type="reset" name="borrar" id="borrar" value="Restablecer"/>
         </div>
       </div>
     </form>

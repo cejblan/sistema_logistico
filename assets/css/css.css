@@ -331,7 +331,7 @@ section#logout .col-12 {
 
 /* Fin Logout */
 /* Ventas Diarias */
-input#borrar {
+input#borrar.ventas_diarias {
     margin-left: 37.64%;
 }
 
