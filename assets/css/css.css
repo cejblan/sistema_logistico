@@ -343,6 +343,10 @@ input#submit.center {
     margin-bottom: 4em;
 }
 
+h1.margin_top {
+    margin-top: 0.5em !important;
+}
+
 /* Fin Ventas Diarias */
 /* Footer */
 section#footer {

@@ -205,7 +205,7 @@ if(isset($_POST["actualizar"]))
 <section class="container FEs">
   <div class="row">
     <div class="col-12">
-      <h1>Caja</h1>
+      <h1 class="margin_top">Caja</h1>
     </div>
   </div>
   </br>
@@ -297,7 +297,6 @@ $result_consult_ventas = mysqli_query($conexion,$consult_ventas);
 if (@mysqli_num_rows($result_consult_ventas) == true)
  {
    echo '</br>
-         </br>
          <section class="container FEs">
            <div class="row">
              <div class="col-12">
