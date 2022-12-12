@@ -96,30 +96,30 @@ if(isset($_POST["actualizar"]))
 
 ?>
 
-<section class="container FEs">
+<section class="container FEs ventas_diarias">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 calc_titulo">
         <h1>Ventas Diarias</h1>
     </div>
   </div>
   </br>
   <form action="ventas_diarias.php" method="POST">
     <div class="row">
-      <div class="col-2">
+      <div class="col-3 calc">
         <h4>Vendedor</h4>
       </div>
-      <div class="col-2">
+      <div class="col-2 calc">
         <h4>Cantidad</h4>
       </div>
-      <div class="col-6">
+      <div class="col-5 calc">
         <h4>Descripcion</h4>
       </div>
-      <div class="col-2">
+      <div class="col-2 calc">
         <h4>Monto</h4>
       </div>
     </div>
     <div class="row">
-      <div class="col-2">
+      <div class="col-3">
         <select name="vendedor" class="form-control" required>
           <option value="Denis">Denis</option>
           <option value="Alan">Alan</option>
@@ -132,7 +132,7 @@ if(isset($_POST["actualizar"]))
       <div class="col-2">
         <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" value="1.0" step="0.1" required/>
       </div>
-      <div class="col-6">
+      <div class="col-5">
         <input type="text" name="descripcion" class="form-control" placeholder="Descripción" required/>
       </div>
       <div class="col-2">
@@ -141,19 +141,19 @@ if(isset($_POST["actualizar"]))
     </div>
     </br>
     <div class="row">
-      <div class="col-2">
+      <div class="col-2 calc">
         <h4>Forma de pago</h4>
       </div>
-      <div class="col-2">
-        <h4>Nota/Factura</h4>
+      <div class="col-2 calc">
+        <h4>Nota / Factura</h4>
       </div>
-      <div class="col-2">
+      <div class="col-2 calc">
         <h4>Código</h4>
       </div>
-      <div class="col-2">
+      <div class="col-2 calc">
         <h4>Delivery</h4>
       </div>
-      <div class="col-4">
+      <div class="col-4 calc">
         <h4>Observaciones</h4>
       </div>
     </div>
@@ -193,41 +193,41 @@ if(isset($_POST["actualizar"]))
     </div>
     </br>
     <div class="row">
-      <div class="col-10">
-        <input class="btn btn-success" type="submit" name="submit" id="submit" value="Registrar venta"/>
+      <div class="col-6 margin_auto">
+        <input class="btn btn-success" type="submit" name="submit" id="submit" value="Registrar"/>
       </div>
-      <div class="col-2">
+      <div class="col-6 margin_auto">
         <input class="btn btn-success ventas_diarias" type="reset" name="borrar" id="borrar" value="Restablecer"/>
       </div>
     </div>
   </form>
 </section>
-<section class="container FEs">
+</br>
+<section class="container FEs ventas_diarias">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 calc_titulo">
       <h1 class="margin_top">Caja</h1>
     </div>
   </div>
-  </br>
   <div class="row">
     <form action="ventas_diarias.php" method="POST">
       <div class="row">
-        <div class="col-2">
+        <div class="col-2 calc">
           <h4>1$</h4>
         </div>
-        <div class="col-2">
+        <div class="col-2 calc">
           <h4>5$</h4>
         </div>
-        <div class="col-2">
+        <div class="col-2 calc">
           <h4>10$</h4>
         </div>
-        <div class="col-2">
+        <div class="col-2 calc">
           <h4>20$</h4>
         </div>
-        <div class="col-2">
+        <div class="col-2 calc">
           <h4>50$</h4>
         </div>
-        <div class="col-2">
+        <div class="col-2 calc">
           <h4>100$</h4>
         </div>
       </div>
@@ -261,10 +261,10 @@ if(isset($_POST["actualizar"]))
       </div>
       </br>
       <div class="row">
-        <div class="col-10">
+        <div class="col-6 margin_auto">
           <input class="btn btn-success" type="submit" name="actualizar" id="submit" value="Actualizar"/>
         </div>
-        <div class="col-2">
+        <div class="col-6 margin_auto">
           <input class="btn btn-success ventas_diarias" type="reset" name="borrar" id="borrar" value="Restablecer"/>
         </div>
       </div>
@@ -297,10 +297,10 @@ $result_consult_ventas = mysqli_query($conexion,$consult_ventas);
 if (@mysqli_num_rows($result_consult_ventas) == true)
  {
    echo '</br>
-         <section class="container FEs">
+         <section class="container FEs ventas_diarias">
            <div class="row">
-             <div class="col-12">
-                 <h2>El día de hoy</h2>
+             <div class="col-12 calc_titulo">
+                <h1>El día de hoy</h1>
              </div>
            </div>
            <div class="row">
@@ -390,9 +390,9 @@ if (@mysqli_num_rows($result_consult_ventas) == true)
 @$result_sumatoria_apertura = mysqli_fetch_assoc($sumatoria_apertura);
 
 ?>
-<section class="container FEs">
+<section class="container FEs ventas_diarias">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 calc_titulo">
       <h1>Totales</h1>
     </div>
   </div>

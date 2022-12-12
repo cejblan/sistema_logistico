@@ -371,20 +371,25 @@ section#logout .col-12 {
 
 /* Fin Logout */
 /* Ventas Diarias */
-input#borrar.ventas_diarias {
-    margin-left: 37.64%;
-}
-
 input#submit.center {
-    position: relative;
-    left: 42%;
-    right: 42%;
-    margin-top: 1em;
-    margin-bottom: 4em;
+    margin: auto;
+    margin-bottom: 2.4em;
 }
 
 h1.margin_top {
     margin-top: 0.5em !important;
+}
+
+.ventas_diarias .margin_auto {
+    width: 9em;
+}
+
+.ventas_diarias .calc h4 {
+    font-size: calc(0.6em + 0.6vw);
+}
+
+.ventas_diarias .calc_titulo h1 {
+    font-size: calc(1.1em + 0.7vw);
 }
 
 /* Fin Ventas Diarias */
@@ -399,7 +404,7 @@ section#footer {
     height: 4em;
     background-color: #232323 !important;
 	position: absolute;
-	bottom: -4.03em;
+	bottom: -4.09em;
 	width: 100%;
 }
 
