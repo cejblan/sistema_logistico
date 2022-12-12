@@ -17,8 +17,7 @@ if(isset($_SESSION['usuario']))
     <div class="col-12">
         <h1>Ingresa</h1>
     </div>
-    <div class="col-2"></div>
-    <div class="col-8">
+    <div class="col-12">
       <form action="php/code_login.php" name="" method="POST">
         <label>
           <h2>Cedula:</h2>
@@ -31,10 +30,10 @@ if(isset($_SESSION['usuario']))
         <input type="password" name="contrasena" class="form-control" placeholder="Ingrese su contraseña" required/>
         </br>
         <div class="row">
-          <div class="col-10">
+          <div class="col-6 margin_auto login">
             <input class="btn btn-success" type="submit" name="submit" id="submit" value="Ingresa"/>
           </div>
-          <div class="col-2">
+          <div class="col-6 margin_auto login">
             <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
           </div>
         </div>
