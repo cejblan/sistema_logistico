@@ -90,10 +90,10 @@ if (!$_POST || trim(@$_POST['nombre']) === '')
                 <input type="file" name="imagen" class="form-control" placeholder="¿Alguna foto?" required/>
                 </br>
                 <div class="row">
-                  <div class="col">
+                  <div class="col-6 margin_auto registro_productos">
                     <input class="btn btn-success" type="submit" name="submit" id="submit" value="Registrar"/>
                   </div>
-                  <div class="col">
+                  <div class="col-6 margin_auto registro_productos">
                     <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Borrar"/>
                   </div>
                 </div>
