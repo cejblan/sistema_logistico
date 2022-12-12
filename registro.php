@@ -104,7 +104,7 @@ require_once("php/head.php");
 
 ?>
 
-<section class="container FEs">
+<section class="container FEs registro">
   <div class="row">
     <div class="col-12">
         <h1>Registro de Usuario</h1>
@@ -138,34 +138,49 @@ require_once("php/head.php");
         <input type="file" name="foto" class="form-control" accept="image/png,image/jpeg" required/>
         </br>
         <div class="row">
-          <div class="col">
+          <div class="col-6 margin_auto registro">
             <input class="btn btn-success" type="submit" name="submit" id="submit" value="Ingresa"/>
           </div>
-          <div class="col">
+          <div class="col-6 margin_auto registro">
             <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Borrar"/>
           </div>
         </div>
       </form>
       </br>
       </br>
-      <label>
-        <h6>
-          <strong>¿La foto no es 400px por 400px?</strong>
-        </h6>
-      </label>
+      <div class="row">
+        <div class="col-12 margin_auto">
+          <h5>
+            <strong>¿La foto no es 400px por 400px?</strong>
+          </h5>
+        </div>
+      </div>
       <form name="forma" action="php/redimensionar_imagen.php" enctype="multipart/form-data" method="POST">
         <div class="row">
-          <div class="col-8">
-            <input type="file" name="foto" class="form-control" required/>
+          <div class="col-6 margin_auto registro_2">
+            <input type="file" id="inputarchivo" name="foto" class="form-control" style="display: none;" accept="image/png,image/jpeg" required/>
+            <button class="btn btn-success registro"><label for="inputarchivo" id="labelarchivo">Subir archivo</label></button>
           </div>
-          <div class="col-4">
-            <button class="btn btn-success" type="submit" accept="image/png,image/jpeg">Redimensionar</button>
+          <div class="col-6 margin_auto registro_2">
+            <button class="btn btn-success" type="submit">Redimensionar</button>
           </div>
         </div>
       </form>
     </div>
   </div>
 </section>
+<script>
+  var inputArchivo = document.getElementById('inputarchivo');
+  inputArchivo.addEventListener("change", function() {
+    let nombreArchivo = this.files[0].name;
+    let labelArchivo = document.getElementById('labelarchivo');
+    if (this.value != "") {
+      labelArchivo.innerHTML = nombreArchivo;
+    } else {
+      labelArchivo.innerHTML = 'Selecciona un archivo'
+    }
+  });
+</script>
 
 <?php
 require_once("php/footer.php");
