@@ -66,7 +66,7 @@ a.nav-link.link.text-white.text-primary {
 .margin_auto.productos,
 .margin_auto.historial {
     margin: auto;
-    width: 9em;
+    width: 9.3em;
 }
 
 .margin_auto.registro {
@@ -365,8 +365,9 @@ section#logout {
 }
 
 section#logout .col-12 {
-    position: absolute;
-    top: 21em;
+    position: relative;
+    top: 9em;
+    margin: auto;
 }
 
 /* Fin Logout */
@@ -381,7 +382,7 @@ h1.margin_top {
 }
 
 .ventas_diarias .margin_auto {
-    width: 9em;
+    width: 9.3em;
 }
 
 .ventas_diarias .calc h4 {
@@ -422,8 +423,8 @@ section#footer a.TSU {
 /* Alertas */
 section#alertas {
     position: absolute;
-    left: 16%;
-    top: 10%;
+    left: 1em;
+    top: 7em;
     background-color: transparent !important;
 }
 

@@ -12,7 +12,6 @@ if(@$_SESSION['usuario'] == true or @$_SESSION['administrador'] == true)
 require_once('php/head.php');
 ?>
 
-</br>
 <section id="logout" class="container">
   <div class="row">
     <div class="col-12">
