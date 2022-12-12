@@ -33,8 +33,7 @@ require_once('php/conexion.php');
       <div class="col-12">
           <h1>Historial</h1>
       </div>
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-12">
         <form action="historial.php" method="POST">
           <label>
             <h2>Busqueda:</h2>
@@ -57,10 +56,10 @@ if (! $_POST || trim($_POST['buspro'])   === '')
         </div>
         </br>
         <div class="row">
-          <div class="col-3">
+          <div class="col-6 margin_auto historial">
             <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
           </div>
-          <div class="col-9">
+          <div class="col-6 margin_auto historial">
             <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
           </div>
         </div>
@@ -85,10 +84,10 @@ if (! $_POST || trim($_POST['buspro'])   === '')
         </div>
         </br>
         <div class="row">
-          <div class="col-3">
+          <div class="col-6 margin_auto historial">
             <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
           </div>
-          <div class="col-9">
+          <div class="col-6 margin_auto historial">
             <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
           </div>
         </div>
@@ -140,8 +139,7 @@ if (@mysqli_num_rows($result_productos) == true)
            </div>
            </br>
            <div class="row">
-             <div class="col-1"></div>
-               <div class="col-10">
+             <div class="col-12">
                  <table class="table table-dark">
                    <thead>
                      <tr>
