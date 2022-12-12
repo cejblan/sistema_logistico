@@ -40,7 +40,6 @@ admin:
   </div>
   </br>
   </br>
-  </br>
   <div class="row">
     <div class="col-4">
       <a href="registro_productos.php">
