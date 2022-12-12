@@ -58,8 +58,7 @@ if (@$result_historial)
       <div class="col-12">
           <h1>Busqueda</h1>
       </div>
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-12">
         <form action="productos.php" name="" method="POST">
           <label>
             <h2>Producto:</h2>
@@ -71,10 +70,10 @@ if (! $_POST || trim(@$_POST['buspro'])   === '')
   echo '<input type="text" name="buspro" class="form-control" placeholder="Nombre de producto" required/>
         </br>
         <div class="row">
-          <div class="col-10">
+          <div class="col-6 margin_auto productos">
             <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
           </div>
-          <div class="col-2">
+          <div class="col-6 margin_auto productos">
             <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
           </div>
         </div>
@@ -88,10 +87,10 @@ if (! $_POST || trim(@$_POST['buspro'])   === '')
   echo '<input type="text" name="buspro" value="' . $buspro . '" class="form-control" placeholder="Nombre de producto" required/>
         </br>
         <div class="row">
-          <div class="col-10">
+          <div class="col-6 margin_auto productos">
             <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
           </div>
-          <div class="col-2">
+          <div class="col-6 margin_auto productos">
             <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
           </div>
         </div>
