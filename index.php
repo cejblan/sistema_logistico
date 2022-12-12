@@ -5,6 +5,7 @@ session_start();
 require_once("php/head.php");
 
 ?>
+    </br>
     <section id="cuadricula">
         <div class="container">
             <div class="row">
