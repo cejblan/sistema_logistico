@@ -58,6 +58,41 @@ a.nav-link.link.text-white.text-primary {
     text-align: center;
 }
 
+.margin_auto {
+    margin: auto;
+}
+
+.margin_auto.login,
+.margin_auto.productos,
+.margin_auto.historial {
+    margin: auto;
+    width: 9em;
+}
+
+.margin_auto.registro {
+    margin: auto;
+    width: 7.1em;
+}
+
+.margin_auto.registro_2 {
+    margin: auto;
+    width: 10.5em;
+}
+
+button.btn.btn-success.registro{
+    background-color: #0d1c3a !important;
+    border-color: #0a2b6c !important;
+}
+
+.margin_auto h5 {
+    text-align: center;
+}
+
+.margin_auto.registro_productos {
+    text-align: center;
+    width: 7.8em;
+}
+
 /*Fin General */
 /* Index */
 section#cuadricula {
@@ -317,6 +352,11 @@ label#descripcion {
     padding: 0.45em;
     margin-bottom: 1em;
 }
+
+#administrativo .col-4 {
+    margin: auto;
+    width: 27em;
+}
     
 /* Fin administrativo */
 /* Logout */
@@ -377,7 +417,7 @@ section#footer a.TSU {
 /* Alertas */
 section#alertas {
     position: absolute;
-    left: 19%;
+    left: 16%;
     top: 10%;
     background-color: transparent !important;
 }
