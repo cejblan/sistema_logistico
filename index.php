@@ -212,17 +212,17 @@ if (isset($_COOKIE["administrador"]) or isset($_COOKIE["IngUsuario"]))
 </section>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    setTimeout(function() {
-        $(".alert").fadeOut(3000);
-    },3000);
-});
-$(document).ready(function() {
-    setTimeout(function() {
-        var x = document.getElementById("alert");
-        x.style.setProperty("display", "none", "important");
-    },6000);
-});
+          $(document).ready(function() {
+              setTimeout(function() {
+                  $(".alert").fadeOut(3000);
+              },3000);
+          });
+          $(document).ready(function() {
+              setTimeout(function() {
+                  var x = document.getElementById("alert");
+                  x.style.setProperty("display", "none", "important");
+              },6000);
+          });
 </script>
 
 <?php

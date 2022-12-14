@@ -42,13 +42,12 @@ if (mysqli_num_rows($result_user) == true)
   {
     while ($colum = mysqli_fetch_array($result_user))
       {
-        echo '<section class="container FEs">
+        echo '<section id="resolucion1" class="container FEs">
                 <div class="row">
                   <div class="col-12">
                       <h1>Usuario</h1>
                   </div>
-                  <div class="col-2"></div>
-                  <div class="col-8 cuadroU">
+                  <div class="col-12 cuadroU">
                     <div class="container">
                       <div class="row">
                         <div class="col-4">
@@ -73,7 +72,7 @@ if (mysqli_num_rows($result_user) == true)
                             <h5>&nbsp'. $colum['cedula'] .'</h5>
                           </label>
                         </div>
-                        <div class="col-4 absolute">
+                        <div class="col-4 imagen">
                           <img src="data:;base64,' . base64_encode( $colum['foto'] ) . '"/>
                         </div>
                       </div>
@@ -107,34 +106,124 @@ if (mysqli_num_rows($result_user) == true)
                             <h3>Contraseña:</h3>
                           </label>
                         </div>
-                        <div class="col-4">
+                        <div class="col">
                           <label>
                             <input type="password" value="'. $colum['contrasena'] .'" class="form-control" disabled/>
-                          </label>
-                        </div>
-                        <div class="col-4">
-                          <label>
-                            <h5 class="absolute">Fecha:&nbsp'. $colum['fecha'] .'</h5>
                           </label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-4">
-                          <label>
-                            <h4>Cambiar contraseña:</h4>
-                          </label>
-                        </div>
-                        <div class="col-4">
                           <form action="usuario.php" method="POST">
+                            <label>
+                              <h4 class="alig_left">Cambiar contraseña:</h4>
+                            </label>
+                          </div>
+                          <div class="col-4">
                             <input type="password" name="contrasena" class="form-control" required/>
-                            <input class="btn btn-success" type="submit" name="submit" id="submit" value="Cambiar"/>
-                          </form>
-                        </div>
+                          </div>
+                          <div class="col-4">
+                            <input class="btn btn-success cam_con_usu" type="submit" name="submit" id="submit" value="Cambiar"/>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>  
                 </div>
-              </section>';
+              </section>
+              <section id="resolucion2" class="container FEs">
+                <div class="row">
+                  <div class="col-12">
+                      <h1>Usuario</h1>
+                  </div>
+                  <div class="col-12 cuadroU">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-5">
+                          <label>
+                            <h3>Nombre y apellido:</h3>
+                          </label>
+                        </div>
+                        <div class="col-7">
+                          <label>
+                            <h1>&nbsp'. $colum['nombre'] .'&nbsp'. $colum['apellido'] .'</h1>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-5">
+                          <label>
+                            <h3>Cedula Identidad:</h3>
+                          </label>
+                        </div>
+                        <div class="col-7">
+                          <label>
+                            <h5>&nbsp'. $colum['cedula'] .'</h5>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 imagen">
+                          <img src="data:;base64,' . base64_encode( $colum['foto'] ) . '"/>
+                        </div>
+                      </div>
+                      </br>
+                      <div class="row">
+                        <div class="col-5">
+                          <label>
+                            <h3>Fecha de creación:</h3>
+                          </label>
+                        </div>
+                        <div class="col-7">
+                          <label>
+                            <h5>&nbsp'. $colum['fecha'] .'</h5>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-5">
+                          <label>
+                            <h3>Admin. creador:</h3>
+                          </label>
+                        </div>
+                        <div class="col-7">
+                          <label>
+                            <h5>&nbsp'. $colum['creador'] .'</h5>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-5">
+                          <label>
+                            <h3>Contraseña:</h3>
+                          </label>
+                        </div>
+                        <div class="col">
+                          <label>
+                            <input type="password" value="'. $colum['contrasena'] .'" class="form-control" disabled/>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-4">
+                          <form action="usuario.php" method="POST">
+                            <label>
+                              <h4 class="alig_left">Cambiar contraseña:</h4>
+                            </label>
+                          </div>
+                          <div class="col-4">
+                            <input type="password" name="contrasena" class="form-control" required/>
+                          </div>
+                          <div class="col-4">
+                            <input class="btn btn-success cam_con_usu" type="submit" name="submit" id="submit" value="Cambiar"/>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>  
+                </div>
+              </section>
+              ';
         }
   }
   else

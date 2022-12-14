@@ -288,59 +288,65 @@ label#descripcion {
 
 /* Fin Productos */
 /* Usuario */
-.col-8.cuadroU {
+.cuadroU {
     background-color: #353535;
-    border-radius: 1em;
     margin-top: 2em;
-    filter: blur(0.5em);
+    /*filter: blur(0.5em);*/
     transition: all .5s ease-in-out;
     padding: 2em;
 }
 
-.col-8.cuadroU:hover {
+.cuadroU:hover {
     filter: blur(0);
     transition:all .5s ease-in-out;
 }
 
-.col-8.cuadroU label {
+.cuadroU label {
     margin-bottom: 2em;
 }
 
-.container.FEs .col-8.cuadroU h1 {
+.container.FEs .cuadroU h1 {
     text-align: left;
     margin-top: 0;
-    font-size: calc(2em + 1vw);
+    font-size: calc(1em + 1vw);
 }
 
-.container.FEs .col-8.cuadroU h3,
-.container.FEs .col-8.cuadroU h4 {
+.container.FEs .cuadroU h3,
+.container.FEs .cuadroU h4 {
     color: white;
+    font-size: calc(0.7rem + 0.7vw);
 }
 
-.container.FEs .col-8.cuadroU h5 {
+.container.FEs .cuadroU h5 {
     color: white;
     font-style: oblique;
 }
 
-.col-8.cuadroU .col-4.absolute {
-    width: 13em;
-    height: 12em;
-    position: absolute;
-    right: 2em;
-    top: 5em;
+.cuadroU .col-4.imagen {
+    width: 24em;
+    height: 0em;
+}
+
+.cuadroU .col-4.imagen img {
     border-radius: 1em;
 }
 
-.col-8.cuadroU h5.absolute {
+.cuadroU h5.absolute {
     position: absolute;
     right: 1em;
     top: 14em;
 }
 
-.col-8.cuadroU input#submit {
-    position: absolute;
-    right: 9em;
-    top: 23.55em;
+.cuadroU input#submit.cam_con_usu {
+    margin: 0;
+}
+
+.cuadroU .alig_left {
+    text-align: left !important;
+}
+
+section#resolucion2 {
+    display: none;
 }
 
 /* Fin Usuario */
@@ -434,10 +440,26 @@ div#alert {
 
 /* Fin Alertas */
 /* Media Queries */
+@media (max-width: 1399px) {
+    .cuadroU .col-4.imagen {
+        width: 21em;
+    }
+  }
+
     /* Smartphones (portrait) ----------- */
     @media only screen and (min-device-width : 412px) and (max-device-height : 914px) {
         /* Styles */
         #productos .cajita img.pre {
             margin-top: 1.8em;
+        }
+        .cuadroU {
+            border-radius: 0;
+            padding: 0.5em;
+        }
+        .cuadroU .col-4.imagen {
+            width: 21em;
+        }
+        .cuadroU input#submit.cam_con_usu {
+            width: 7em;
         }
     }
