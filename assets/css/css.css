@@ -367,10 +367,6 @@ section#resolucion2 {
 /* Fin administrativo */
 /* Lita de Usuarios */
 
-.table-presupuesto.delete label.padding{
-    padding-top: 1em;
-}
-
 input#eliminar {
     display: none;
 }
