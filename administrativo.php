@@ -56,7 +56,7 @@ admin:
       </a>
     </div>
     <div class="col-4">
-      <a href="">
+      <a href="lista_usuarios.php">
         <h2>
           <strong>Listado de Usuarios</strong>
         </h2>
@@ -64,6 +64,13 @@ admin:
     </div>
   </div>
   <div class="row">
+    <div class="col-4">
+      <a href="lista_productos.php">
+        <h2>
+          <strong>Listado de Productos</strong>
+        </h2>
+      </a>
+    </div>
     <div class="col-4">
       <a href="imprimir.php">
         <h2>
