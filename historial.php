@@ -140,17 +140,27 @@ if (@mysqli_num_rows($result_productos) == true)
            </br>
            <div class="row">
              <div class="col-12">
-                 <table class="table table-dark">
-                   <thead>
-                     <tr>
-                       <th scope="col">Vendedor</th>
-                       <th scope="col">Fecha</th>
-                       <th scope="col">Producto</th>
-                       <th scope="col">Existencia A.</th>
-                       <th scope="col">Existencia N.</th>
-                     </tr>
-                   </thead>
-                   <tbody>';
+                <table class="table table-dark">
+                  <thead>
+                    <tr>
+                      <th>
+                        <label>Vendedor</label>
+                      </th>
+                      <th>
+                        <label>Fecha</label>
+                      </th>
+                      <th>
+                        <label>Producto</label>
+                      </th>
+                      <th>
+                        <label>Existencia A.</label>
+                      </th>
+                      <th>
+                        <label>Existencia N.</label>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>';
    while ($columP = mysqli_fetch_array($result_productos))
      {
        echo '<tr>
