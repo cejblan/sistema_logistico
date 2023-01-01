@@ -59,7 +59,7 @@ if (@$result_historial)
           <h1>Busqueda</h1>
       </div>
       <div class="col-12">
-        <form action="productos.php" name="" method="POST">
+        <form action="productos.php" method="POST">
           <label>
             <h2>Producto:</h2>
           </label>
