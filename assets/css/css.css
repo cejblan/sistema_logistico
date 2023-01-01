@@ -291,7 +291,8 @@ label#descripcion {
 .cuadroU {
     background-color: #353535;
     margin-top: 2em;
-    /*filter: blur(0.5em);*/
+    margin-bottom: 2em;
+    filter: blur(0.5em);
     transition: all .5s ease-in-out;
     padding: 2em;
 }
@@ -463,7 +464,7 @@ div#alert {
   }
 
     /* Smartphones (portrait) ----------- */
-    @media only screen and (min-device-width : 412px) and (max-device-height : 914px) {
+    @media only screen and (min-device-width : 412px) and (max-device-height : 583px) {
         /* Styles */
         #productos .cajita img.pre {
             margin-top: 1.8em;
