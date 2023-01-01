@@ -34,105 +34,106 @@ $cantidad = @$_POST["cantidad"];
 $almacen = @$_POST["almacen"];
 $estante = @$_POST["estante"];
 $tramo = @$_POST["tramo"];
-$imagen = @$_POST["imagen"];
-$tipo = @$_POST["tipo"];
 
-require_once('php/head.php'); 
 require_once('php/conexion.php');
-
-?>
-
-  <section class="container FEs">
-    <div class="row">
-      <div class="col-12">
-          <h1>Registro de productos</h1>
-      </div>
-      <div class="col-2"></div>
-      <div class="col-8">
-        <form action="registro_productos.php" name="" method="POST">
-
-<?php
-if (!$_POST || trim(@$_POST['nombre']) === '')
-        {
-          echo '<label>
-                  <h2>Nombre:</h2>
-                </label>
-                <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre del producto" required/>
-                </br>
-                <label>
-                  <h2>Descripción:</h2>
-                </label>
-                <input type="text" name="descripcion" class="form-control" placeholder="Ingrese la descripcion del producto" required/>
-                </br>
-                <label>
-                  <h2>Cantidad:</h2>
-                </label>
-                <input type="number" name="cantidad" placeholder="1.0" step="0.1" class="form-control" required/>
-                </br>
-                <label>
-                  <h2>Almacen:</h2>
-                </label>
-                <input type="text" name="almacen" class="form-control" placeholder="¿En que almacen se va a depositar?" required/>
-                </br>
-                <label>
-                  <h2>Estante:</h2>
-                </label>
-                <input type="text" name="estante" class="form-control" placeholder="¿En que estante se va a colocar?" required/>
-                </br>
-                <label>
-                  <h2>Tramo:</h2>
-                </label>
-                <input type="text" name="tramo" class="form-control" placeholder="¿En cual tramo?" required/>
-                </br>
-                <label>
-                  <h2>Foto:</h2>
-                </label>
-                <input type="file" name="imagen" class="form-control" placeholder="¿Alguna foto?" required/>
-                </br>
-                <div class="row">
-                  <div class="col-6 margin_auto registro_productos">
-                    <input class="btn btn-success" type="submit" name="submit" id="submit" value="Registrar"/>
-                  </div>
-                  <div class="col-6 margin_auto registro_productos">
-                    <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Borrar"/>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-        </br>';
-        goto end;
-        } else {
-                  echo '</br>
-                        <label>
-                          <h2>¿Hacer otro registro?</h2>
-                        </label>
-                        <button>
-                          <input class="btn btn-success" type="submit" name="submit" id="submit" value="Hacer otro registro"/>
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </section>';
-                }
+require_once('php/head.php'); 
 
 if(!$conexion) 
   {
     echo "<b><h3>No se ha podido conectar con el servidor</h3></b>";
     goto end;
   }
+?>
 
-if (!$sistema_logistico)
+<section class="container FEs">
+  <div class="row">
+    <div class="col-12">
+        <h1>Registro de productos</h1>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-8">
+      <form action="registro_productos.php" enctype="multipart/form-data" method="POST">
+        <label>
+          <h2>Nombre:</h2>
+        </label>
+        <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre del producto" required/>
+        </br>
+        <label>
+          <h2>Descripción:</h2>
+        </label>
+        <input type="text" name="descripcion" class="form-control" placeholder="Ingrese la descripcion del producto" required/>
+        </br>
+        <label>
+          <h2>Cantidad:</h2>
+        </label>
+        <input type="number" name="cantidad" placeholder="1.0" step="0.1" class="form-control" required/>
+        </br>
+        <label>
+          <h2>Almacen:</h2>
+        </label>
+        <input type="text" name="almacen" class="form-control" placeholder="¿En que almacen se va a depositar?" required/>
+        </br>
+        <label>
+          <h2>Estante:</h2>
+        </label>
+        <input type="text" name="estante" class="form-control" placeholder="¿En que estante se va a colocar?" required/>
+        </br>
+        <label>
+          <h2>Tramo:</h2>
+        </label>
+        <input type="text" name="tramo" class="form-control" placeholder="¿En cual tramo?" required/>
+        </br>
+        <label>
+          <h2>imagen:</h2>
+        </label>
+        <input type="file" name="imagen" class="form-control" accept="image/png,image/jpeg"/>
+        </br>
+        <div class="row">
+          <div class="col-6 margin_auto registro_productos">
+            <input class="btn btn-success" type="submit" name="submit" id="submit" value="Registrar"/>
+          </div>
+          <div class="col-6 margin_auto registro_productos">
+            <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Borrar"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</br>
+
+<?php
+if (isset($_REQUEST['submit']))
   {
-    echo "<b><h4>No se ha podido encontrar la Tabla</h4></b>";
-    goto end;
+    if (@$_FILES['archivo']['size'] > 100000 )
+      {
+        echo "No se pueden subir archivos con pesos mayores a 100KB";
+      } else {
+              if (isset($_FILES['imagen']['name']))
+                {
+                  $tipoArchivo = $_FILES['imagen']['type'];
+                  $permitido = array("image/png", "image/jpeg");
+                  if(in_array($tipoArchivo,$permitido) == false)
+                    {
+                      echo "<script>
+                              alert('Archivo no permitido');
+                              window.location = '/sistema_logistico/registro_productos.php';
+                            </script>";
+                      die("Archivo no permitido");
+                    }
+                  $nombreArchivo = $_FILES['imagen']['name'];
+                  $tamanoArchivo = $_FILES['imagen']['size'];
+                  $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
+                  $binariosImagen = fread($imagenSubida,$tamanoArchivo);
+                  $binariosImagen = mysqli_escape_string($conexion,$binariosImagen);
+                  $registro_productos = "INSERT INTO productos (nombre, descripcion, cantidad, almacen, estante, tramo, imagen, nombre_imagen, tipo_imagen)
+                            VALUES ('$nombre','$descripcion','$cantidad','$almacen','$estante','$tramo','$binariosImagen','$nombreArchivo','$tipoArchivo')";
+                  $result_productos = mysqli_query($conexion,$registro_productos);
+
+                  @mysqli_close( $conexion );
+                }
+              }
   }
-
-@$registro_productos= "INSERT INTO productos (nombre, descripcion, cantidad, almacen, estante, tramo, imagen, tipo)
-                       VALUES ('$nombre','$descripcion','$cantidad','$almacen','$estante','$tramo','$imagen','$tipo')";
-
-@$result_productos = mysqli_query($conexion,$registro_productos);
 
 if(@!$registro_productos) 
   {
@@ -150,97 +151,6 @@ if(@!$registro_productos)
             </div>
           </section>';  
   }
-
-$consult_productos= "SELECT * FROM productos WHERE nombre ='$nombre'";
-$resultado = mysqli_query($conexion,$consult_productos);
-
-if (@mysqli_num_rows($resultado) == true)
-  {
-    echo '</br>
-          </br>
-          <section class="container FEs">
-            <div class="row">
-              <div class="col-12">
-                  <h1>Producto Registrado</h1>
-              </div>
-            </div>
-            </br>
-            <div class="row">
-              <div class="col-12">
-                <table class="table table-dark">
-                  <thead>
-                    <tr>
-                      <th scope="col">Código</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Descripción</th>
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">Almacen</th>
-                      <th scope="col">Estante</th>
-                      <th scope="col">Tramo</th>
-                      <th scope="col">Imagen</th>
-                      <th scope="col">Tipo</th>
-                    </tr>
-                  </thead>
-                  <tbody>';
-    while ($columP = mysqli_fetch_array($resultado))
-      {
-        echo '<tr>
-                <td>
-                  <label>
-                    <h6>' . $columP['id'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['nombre'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['descripcion'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['cantidad'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['almacen'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['estante'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['tramo'] . '</h6>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <img style="width: 7em;" src="data:'. $columP['tipo'] .';base64,' . base64_encode( $columP['imagen'] ) . '"/>
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <h6>' . $columP['tipo'] . '</h6>
-                  </label>
-                </td>
-              <tr>';
-      }
-  }
-
-  else
-      {
-        @mysqli_close( $conexion );
-        echo "<script>
-                alert('Error al mostrar producto. Consulte con el tecnico.');
-              </script>";
-  }   
 
 end:
 @mysqli_close( $conexion );
