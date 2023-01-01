@@ -159,7 +159,7 @@ require_once("php/head.php");
         <div class="row">
           <div class="col-6 margin_auto registro_2">
             <input type="file" id="inputarchivo" name="foto" class="form-control" style="display: none;" accept="image/png,image/jpeg" required/>
-            <button class="btn btn-success registro"><label for="inputarchivo" id="labelarchivo">Subir archivo</label></button>
+            <button class="btn btn-success registro" for="inputarchivo" id="labelarchivo">Subir archivo</button>
           </div>
           <div class="col-6 margin_auto registro_2">
             <button class="btn btn-success" type="submit">Redimensionar</button>
@@ -169,18 +169,7 @@ require_once("php/head.php");
     </div>
   </div>
 </section>
-<script>
-  var inputArchivo = document.getElementById('inputarchivo');
-  inputArchivo.addEventListener("change", function() {
-    let nombreArchivo = this.files[0].name;
-    let labelArchivo = document.getElementById('labelarchivo');
-    if (this.value != "") {
-      labelArchivo.innerHTML = nombreArchivo;
-    } else {
-      labelArchivo.innerHTML = 'Selecciona un archivo'
-    }
-  });
-</script>
+</br>
 
 <?php
 require_once("php/footer.php");
