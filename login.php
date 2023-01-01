@@ -18,7 +18,7 @@ if(isset($_SESSION['usuario']))
         <h1>Ingresa</h1>
     </div>
     <div class="col-12">
-      <form action="php/code_login.php" name="" method="POST">
+      <form action="php/code_login.php" method="POST">
         <label>
           <h2>Cedula:</h2>
         </label>
