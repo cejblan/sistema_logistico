@@ -72,9 +72,9 @@ admin:
       </a>
     </div>
     <div class="col-4">
-      <a href="imprimir.php">
+      <a href="dompdf.php">
         <h2>
-          <strong>Imprimir Historial</strong>
+          <strong>Historial en PDF</strong>
         </h2>
       </a>
     </div>
