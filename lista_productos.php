@@ -31,6 +31,16 @@ if(!isset($_SESSION['usuario']))
           }
 admin:
 
+@$eliminar = $_POST['eliminar'];
+
+require_once('php/conexion.php');
+
+if(isset($eliminar))
+  {
+    $delete = "DELETE FROM productos WHERE id = '$eliminar'";
+    $result_delete = mysqli_query($conexion,$delete);
+  }
+
 $consult_usuarios = "SELECT * FROM productos";
 $result_usuarios = mysqli_query($conexion,$consult_usuarios);
 
@@ -107,7 +117,7 @@ if (mysqli_num_rows($result_usuarios) == true)
             </td>
             <td>
               <label>
-                <form action="delete.php" method="POST">
+                <form action="lista_productos.php" method="POST">
                   <input type="text" name="eliminar" id="eliminar" class="form-control" value="'. $columP['id'] . '" readonly required/>
                   <button id="submitEliminar" class="button-presupuesto btn btn-primery" type="submit">Eliminar</button>
                 </form>
@@ -116,26 +126,38 @@ if (mysqli_num_rows($result_usuarios) == true)
           </tr>';
     }
 
-  echo '  </tbody>
-        </table>
+  echo '</tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="container FEs">
+  <div class="row">
+    <form action="administrativo.php" method="POST">
+      <div class="col-12">
+        <input class="btn btn-success center" id="submit" type="submit" value="volver"/>
       </div>
-    <a href="administrativo.php">
-      <button id="eliminar" class="button-presupuesto btn btn-success" type="submit">volver</button>
-    </a>
+    </form>
   </div>
 </section>';
   }
   else
       {
-      echo '
-            </tbody>
+      echo '</tbody>
           </table>
-            <h4>
-              <a href="page2.php">
-                <button id="eliminar" class="button-presupuesto btn btn-primery" type="submit">Volver</button>
-              </a>Productos eliminados
-            </h4>
-          </br>';
+        </div>
+      </div>
+    </section>
+    <section class="container FEs">
+      <div class="row">
+        <form action="administrativo.php" method="POST">
+          <div class="col-12">
+            <input class="btn btn-success center" id="submit" type="submit" value="volver"/>
+          </div>
+        </form>
+      </div>
+    </section>
+    </br>';
       goto end;
   }   
 
