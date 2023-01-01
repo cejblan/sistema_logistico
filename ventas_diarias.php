@@ -45,6 +45,7 @@ $vendedor = @$_POST["vendedor"];
 $cantidad = @$_POST["cantidad"];
 $descripcion = @$_POST["descripcion"];
 $monto = @$_POST["monto"];
+$monto_total = ($cantidad * $monto);
 $FormaPago = @$_POST["selectP"];
 $NroNotaFactura = @$_POST["codigo"];
 $delivery = @$_POST["selecD"];
@@ -130,13 +131,13 @@ if(isset($_POST["actualizar"]))
         </select>
       </div>
       <div class="col-2">
-        <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" value="1.0" step="0.1" required/>
+        <input type="number" name="cantidad" class="form-control" value="1.0" step="0.1" required/>
       </div>
       <div class="col-5">
         <input type="text" name="descripcion" class="form-control" placeholder="Descripción" required/>
       </div>
       <div class="col-2">
-        <input type="number" name="monto"  class="form-control" placeholder="Monto" value="1.0" step="0.1" required/>
+        <input type="number" name="monto"  class="form-control" value="1.0" step="0.1" required/>
       </div>
     </div>
     </br>
@@ -287,7 +288,7 @@ if (!$sistema_logistico)
   }
 
 $insert_ventas = "INSERT INTO ventas_diarias (fecha, vendedor, cantidad, descripcion, monto, forma_pago, $NotaFactura, delivery, observaciones)
-                    VALUES ('$fechaActual','$vendedor','$cantidad','$descripcion','$monto','$FormaPago','$NroNotaFactura','$delivery','$observaciones')";
+                    VALUES ('$fechaActual','$vendedor','$cantidad','$descripcion','$monto_total','$FormaPago','$NroNotaFactura','$delivery','$observaciones')";
 $result_ventas = $conexion->query($insert_ventas);
 
 $consult_ventas = "SELECT * FROM ventas_diarias WHERE fecha = '$fechaActual'";
@@ -448,8 +449,123 @@ if (@mysqli_num_rows($result_consult_ventas) == true)
     </form>
   </div>
 </section>
+<section class="container FEs ventas_diarias">
+  <div class="row">
+    <div class="col-12 calc_titulo">
+      <h1>Buscar venta antigua</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form action="ventas_diarias.php" method="POST">
+        <input type="text" name="buscar_fecha" class="form-control" placeholder="Fecha" required/>
+        </br>
+        <div class="row">
+          <div class="col-6 margin_auto productos">
+            <input class="btn btn-success" type="submit" name="submit" id="submit" value="Buscar"/>
+          </div>
+          <div class="col-6 margin_auto productos">
+            <input class="btn btn-success" type="reset" name="borrar" id="borrar" value="Restablecer"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</br>
+</br>
 
 <?php
+
+$buscar_fecha = @$_POST["buscar_fecha"];
+
+@$consult_ventas= "SELECT * FROM ventas_diarias WHERE fecha ='$buscar_fecha'";
+@$result_ventas = mysqli_query($conexion,$consult_ventas);
+
+if (@mysqli_num_rows($result_ventas) == true)
+  {
+?>
+<section class="container FEs">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>
+              <label>ID</label>
+            </th>
+            <th>
+              <label>Fecha</label>
+            </th>
+            <th>
+              <label>Vendedor</label>
+            </th>
+            <th>
+              <label>Cantidad</label>
+            </th>
+            <th>
+              <label>Descripcion</label>
+            </th>
+            <th>
+              <label>Monto</label>
+            </th>
+            <th>
+              <label>Forma de pago</label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody><?php
+  while ($colum_ventas = mysqli_fetch_array($result_ventas))
+    {
+    echo '<tr>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['id'] . '</h6>
+              </label>
+            </td>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['fecha'] . '</h6>
+              </label>
+            </td>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['vendedor'] . '</h6>
+              </label>
+            </td>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['cantidad'] . '</h6>
+              </label>
+            </td>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['descripcion'] . '</h6>
+              </label>
+            </td>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['monto'] . '</h6>
+              </label>
+            </td>
+            <td>
+              <label class="padding">
+                <h6>' . $colum_ventas['forma_pago'] . '</h6>
+              </label>
+            </td>
+          </tr>';
+    }
+
+  echo '</tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</br>
+</br>';
+}
 
 end:
 @mysqli_close( $conexion );
